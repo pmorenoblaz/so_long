@@ -18,7 +18,7 @@ all:		$(NAME)
 	$(GCC) $(CFLAGS)  -Imlx -c $< -o $@ -I$(LIBFT_PATH)
 
 $(NAME):	$(OBJS)
-	make -C $(LIBFT_PATH)
+	@make -C $(LIBFT_PATH)
 	$(CC) -o $(NAME) $(OBJS) -Imlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -I./libft -L./libft -lft
 
 clean:		
