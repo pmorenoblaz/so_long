@@ -20,10 +20,11 @@
 // }	t_list;
 
 typedef struct	s_board {
+    char    **board;
 	int	    x;
 	int 	y;
 	char	type;
-	int		is_border;
+	// int		is_border;
 } t_board;
 
 // main.c
