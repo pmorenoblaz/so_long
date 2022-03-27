@@ -19,6 +19,12 @@
 // 	struct s_list	*next;
 // }	t_list;
 
+// main.c
 int ft_read_map(char *file);
+
+// read_file.c
+
+// leaks.c
+void	leaks();
 
 #endif

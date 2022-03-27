@@ -1,4 +1,6 @@
-SRCS	= main.c gnl/get_next_line_utils.c gnl/get_next_line.c
+SRCS	= gnl/get_next_line_utils.c gnl/get_next_line.c \
+			main.c leaks.c \
+			read_file.c
 
 LIBFT_PATH = libft/
 
