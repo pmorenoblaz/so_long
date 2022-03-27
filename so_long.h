@@ -27,4 +27,8 @@ int ft_read_map(char *file);
 // leaks.c
 void	leaks();
 
+// free_variables.c
+// void	free_variables(t_comm_path **comm_dir);
+void	free_variables_list(char **list);
+
 #endif
