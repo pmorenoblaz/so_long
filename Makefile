@@ -1,4 +1,4 @@
-SRCS	= main.c
+SRCS	= main.c gnl/get_next_line_utils.c gnl/get_next_line.c
 
 LIBFT_PATH = libft/
 
@@ -18,7 +18,7 @@ all:		$(NAME)
 	$(GCC) $(CFLAGS)  -Imlx -c $< -o $@ -I$(LIBFT_PATH)
 
 $(NAME):	$(OBJS)
-	@make -C $(LIBFT_PATH)
+	@make -C $(LIBFT_PATH) --silent
 	$(CC) -o $(NAME) $(OBJS) -Imlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -I./libft -L./libft -lft
 
 clean:		

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmoreno- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 08:50:10 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/01/27 08:50:13 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/03/27 11:32:38 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_read_more(int fd, char **rest)
 	pos = ft_getpos(*rest, 10);
 	while (pos == -1)
 	{
-		buffer = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
+		buffer = ft_calloc_gnl(sizeof(char), BUFFER_SIZE + 1);
 		len = read(fd, buffer, BUFFER_SIZE);
 		if (len == 0)
 		{
@@ -48,7 +48,7 @@ int	ft_read_more(int fd, char **rest)
 			return (0);
 		}
 		pos = ft_getpos(buffer, 10);
-		aux = ft_strlcat(*rest, buffer);
+		aux = ft_strlcat_gnl(*rest, buffer);
 		free(buffer);
 		if (*rest)
 			free(*rest);
@@ -63,8 +63,8 @@ char	*ft_final_line(char **rest, int pos)
 	char	*aux;
 
 	aux = *rest;
-	line = ft_substr(aux, 0, pos + 1);
-	*rest = ft_substr(aux, pos + 1, ft_strlen(aux) + 1 - pos);
+	line = ft_substr_gnl(aux, 0, pos + 1);
+	*rest = ft_substr_gnl(aux, pos + 1, ft_strlen_gnl(aux) + 1 - pos);
 	free(aux);
 	return (line);
 }
