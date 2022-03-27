@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 11:26:57 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/03/27 11:29:52 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/03/27 11:43:48 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int ft_read_map(char *file)
             free(line);
             return (0);
         }
-        printf("line %i=>%s", pos[1] + 1, line);
+        printf("%s", line);
 		if (line && ft_strlen(line) > 0)
 			free(line);
 		line = get_next_line(fd);
@@ -43,11 +43,16 @@ int ft_read_map(char *file)
     return (1);
 }
 
+void    leaks()
+{
+    system("leaks so_long");    
+}
 
 int	main(int argc, char **argv)
 {
     if (argc != 2)
         printf("Error en el número de arguentos\n");
-    argv = 0;
+    ft_read_map(argv[1]);
+    atexit(leaks);
 	return (0);
 }
