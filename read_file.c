@@ -6,13 +6,13 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 12:01:35 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/03/27 12:44:15 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/03/27 14:36:28 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_read_map(char *file)
+int	ft_read_map(char *file, int *x, int *y)
 {
 	int		fd;
 	char	*line;

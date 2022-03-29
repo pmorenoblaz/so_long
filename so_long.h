@@ -19,6 +19,14 @@
 // 	struct s_list	*next;
 // }	t_list;
 
+typedef struct	s_board {
+    char    **board;
+	int	    x;
+	int 	y;
+	char	type;
+	// int		is_border;
+} t_board;
+
 // main.c
 int ft_read_map(char *file);
 
