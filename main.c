@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 11:26:57 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/03/27 12:51:20 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/03/29 17:58:02 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int	main(int argc, char **argv)
 	mlx_loop(mlx);
 	free(mlx);
 	free(mlx_win);
+	
 	return (0);
 }
