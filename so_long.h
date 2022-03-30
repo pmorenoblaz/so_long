@@ -19,6 +19,16 @@
 // 	struct s_list	*next;
 // }	t_list;
 
+typedef struct  s_board {
+	int     x;
+	int 	y;
+	char	type;
+	int		is_border;
+    int     jug;
+    int     coll;
+    int     end;
+} t_board;
+
 // main.c
 int ft_read_map(char *file);
 
@@ -28,7 +38,7 @@ int ft_read_map(char *file);
 void	leaks();
 
 // free_variables.c
-// void	free_variables(t_comm_path **comm_dir);
+void	free_variables(t_board **board);
 void	free_variables_list(char **list);
 
 #endif
