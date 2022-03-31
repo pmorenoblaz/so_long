@@ -30,7 +30,7 @@ typedef struct  s_board {
 } t_board;
 
 // main.c
-int ft_read_map(char *file);
+void	ft_read_map(char *file, int *x, int *y); 
 
 // read_file.c
 

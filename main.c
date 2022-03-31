@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/27 11:26:57 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/03/30 20:13:41 by pmoreno-         ###   ########.fr       */
+/*   Created: 2022/03/31 18:05:56 by pmoreno-          #+#    #+#             */
+/*   Updated: 2022/03/31 18:06:53 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main(int argc, char **argv)
 {
 	void	*mlx;
 	void	*mlx_win;
+	int		x;
+	int		y;
 	t_board	**board;
 
 	atexit(leaks);
@@ -33,5 +35,6 @@ int	main(int argc, char **argv)
 	mlx_loop(mlx);
 	free(mlx);
 	free(mlx_win);
+	
 	return (0);
 }

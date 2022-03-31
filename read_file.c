@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 12:01:35 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/03/30 20:18:35 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/03/31 18:13:45 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,8 @@ void	ft_add_line_to_board(t_board **board, char *line, int x)
 	i = 0;
 	while (line[i])
 	{
-		board->x = x;
-		board->y = i;
-		board
+		(*board)->x = x;
+		(*board)->y = i;
 		i++;
 	}
 }
@@ -61,10 +60,10 @@ void	ft_final_matrix(char *file, t_board **board, int *x, int *y)
 	line = get_next_line(fd);
 	while (line)
 	{
-		board = malloc(sizeof(t_board) * y);
+		board = malloc(sizeof(t_board) * (*y));
 		ft_sum_elements(board, line);
 		// printf("%s", line);
-		ft_add_line_to_board(board, line);
+		ft_add_line_to_board(board, line, x);
 		if (line && ft_strlen(line) > 0)
 			free(line);
 		line = get_next_line(fd);

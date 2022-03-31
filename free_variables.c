@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 15:36:06 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/03/30 19:30:33 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/03/31 18:17:44 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	free_variables(t_board **board)
 {
 	t_board	*aux;
 
-	aux = *comm_dir;
-	while (*comm_dir)
+	aux = *board;
+	while (*board)
 	{
-		aux = (*comm_dir)->next;
-		if ((*comm_dir)->comm != NULL)
-			free_variables_list((*comm_dir)->comm);
-		free(*comm_dir);
-		*comm_dir = aux;
+	// 	aux = (*board)->next;
+	// 	if ((*board)->comm != NULL)
+	// 		free_variables_list((*board)->comm);
+		free(*board);
+		*board = aux;
 	}
-	free(*comm_dir);
+	free(*board);
 }
 
 void	free_variables_list(char **list)
