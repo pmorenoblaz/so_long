@@ -37,5 +37,23 @@ void    ft_check_board(t_board **board, int *x)
         free_variables_list(board);
         exit(0);
     }
-    while ()
+}
+
+void    ft_check_border(t_board **board, intt x, int y)
+{
+    int	i;
+	int	j;
+
+	i = 0;
+	while (i < x)
+	{
+		j = 0;
+		while (j < y)
+		{
+			if (i)
+				;
+			j++;
+		}
+		i++;
+	}
 }

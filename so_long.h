@@ -15,7 +15,7 @@
 // typedef struct s_list
 // {
 // 	int				pos;
-// 	int long		num;
+// 	int long+		num;
 // 	struct s_list	*next;
 // }	t_list;
 
@@ -33,6 +33,7 @@ typedef struct  s_board {
 void	ft_read_map(char *file, int *x, int *y); 
 
 // read_file.c
+
 
 // leaks.c
 void	leaks();

@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 12:01:35 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/03/31 18:13:45 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/01 18:52:31 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ void	ft_read_map(char *file, int *x, int *y)
 	close(fd);
 }
 
-void	ft_add_line_to_board(t_board **board, char *line, int x)
+void	ft_add_line_to_board(t_board **board, char *line, int pos, int y)
 {
 	int i;
 
 	i = 0;
-	while (line[i])
+	while (i < pos[1])
 	{
 		(*board)->x = x;
 		(*board)->y = i;
@@ -55,12 +55,15 @@ void	ft_final_matrix(char *file, t_board **board, int *x, int *y)
 {
 	int		fd;
 	char	*line;
+	int		pos[2];
 
 	fd = open(file, O_RDONLY);
-	line = get_next_line(fd);
-	while (line)
+	pos[0] = 0;
+	while (pos[0] < x)
 	{
-		board = malloc(sizeof(t_board) * (*y));
+		line = get_next_line(fd);
+		pos[1] = 0;
+		board[pos[0]] = malloc(sizeof(t_board) * (*y));
 		ft_sum_elements(board, line);
 		// printf("%s", line);
 		ft_add_line_to_board(board, line, x);
@@ -68,5 +71,7 @@ void	ft_final_matrix(char *file, t_board **board, int *x, int *y)
 			free(line);
 		line = get_next_line(fd);
 	}
+	close(fd);
 	ft_check_board(board);
+	ft_check_border(board, x, y);
 }
