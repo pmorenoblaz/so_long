@@ -42,4 +42,6 @@ void	leaks();
 void	free_variables(t_board **board);
 void	free_variables_list(char **list);
 
+void	ft_final_matrix(char *file, t_board **board, int *x, int *y);
+
 #endif
