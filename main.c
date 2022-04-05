@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:05:56 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/04 15:26:55 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/05 20:43:38 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	void	*mlx;
-	void	*mlx_win;
+	t_data *data;
 	int		x;
 	int		y;
 	t_board	**board;
@@ -31,11 +30,11 @@ int	main(int argc, char **argv)
 	board = malloc(sizeof(t_board *) * (x + 1));
 	// system("leaks so_long");
 	ft_final_matrix(argv[1], board, &x, &y);
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	mlx_loop(mlx);
-	free(mlx);
-	free(mlx_win);
+	data->mlx = mlx_init();
+	data->mlx_win = mlx_new_window(data->mlx, 1920, 1080, "so_long");
+	mlx_loop(data->mlx);
+	free(data->mlx);
+	free(data->mlx_win);
 	
 	return (0);
 }

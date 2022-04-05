@@ -29,6 +29,13 @@ typedef struct  s_board {
     int     end;
 } t_board;
 
+typedef struct s_data
+{
+	void	*mlx;
+	void	*mlx_win;
+} t_data;
+
+
 // main.c
 void	ft_read_map(char *file, int *x, int *y); 
 
