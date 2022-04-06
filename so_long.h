@@ -37,7 +37,7 @@ typedef struct s_data
 
 
 // main.c
-void	ft_read_map(char *file, int *x, int *y); 
+t_list	*ft_read_map(char *file);
 
 // read_file.c
 
@@ -46,9 +46,9 @@ void	ft_read_map(char *file, int *x, int *y);
 void	leaks();
 
 // free_variables.c
-void	free_variables(t_board **board);
+void	free_variables(t_list **list);
 void	free_variables_list(char **list);
 
-void	ft_final_matrix(char *file, t_board **board, int *x, int *y);
+t_board	*ft_final_matrix(t_list **list);
 
 #endif
