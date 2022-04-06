@@ -6,28 +6,27 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 12:01:35 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/06 19:44:23 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/06 20:45:00 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_list	*ft_read_map(char *file)
+t_list	*ft_read_map(char *file, int cont[2])
 {
 	int		fd;
 	char	*line;
-	int		pos[3];
+	int		len;
 	t_list *aux;
 
 	fd = open(file, O_RDONLY);
-	pos[0] = 0;
 	line = get_next_line(fd);
-	pos[1] = ft_strlen(line);
+	cont[1] = ft_strlen(line) - 1;
 	aux = 0;
 	while (line)
 	{
-		pos[2] = ft_strlen(line);
-		if (pos[1] != pos[2])
+		len = ft_strlen(line) - 1;
+		if (cont[1] != len)
 		{
 			free(line);
 			free_variables(&aux);
@@ -39,35 +38,68 @@ t_list	*ft_read_map(char *file)
 		if (line && ft_strlen(line) > 0)
 			free(line);
 		line = get_next_line(fd);
-		pos[0]++;
+		cont[0]++;
 	}
-	
 	free(line);
 	close(fd);
 	return (aux);
 }
 
-// void	ft_add_line_to_lit_list(t_list **lit_list, char *line, int col, int fil)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while (i < col)
-// 	{
-// 		lit_list[fil][i].x = fil;
-// 		lit_list[fil][i].y = i;
-// 		lit_list[fil][i].type = line[i];
-// 		lit_list[fil][i].is_border = 0;
-// 		if (line[i] == '1')
-// 			lit_list[fil][i].is_border = 1;
-// 		i++;
-// 	}
-// }
-
-
-
-t_board	*ft_final_matrix(t_list **list)
+void ft_initialize_pos(t_board *elem)
 {
-	list = 0;
-	return 0;
+	elem->x = -1;
+	elem->y = -1;
+	elem->is_border = 0;
+	elem->type = 'N';
+	elem->coll = 0;
+	elem->end = 0;
+	elem->jug = 0;	
+}
+
+t_board	ft_add_line_to_lit_list(char c, int fil, int col)
+{
+	t_board elem;
+
+	ft_initialize_pos(&elem);
+	elem.x = fil;
+	elem.y = col;
+	elem.type = c;
+	if (c == '1')
+		elem.is_border = 1;
+	else if(c == 'C')
+		elem.coll++;
+	else if(c == 'E')
+		elem.end++;
+	else if(c == 'P')
+		elem.jug++;
+	return elem;
+}
+
+
+
+t_board	**ft_final_matrix(t_list **list, int cont[2])
+{
+	t_board **board;
+	t_list	*aux;
+	int		i;
+	int		j;
+	
+	i = -1;
+	aux = (*list);
+	board = malloc(sizeof(t_board *) * (cont[0] + 1));
+	while (++i < cont[0])
+	{
+		aux = aux->next;
+		j = 0;
+		board[i] = malloc(sizeof(t_board) * (cont[1] + 1));
+		while (j < cont[1])
+		{
+			board[i][j] = ft_add_line_to_lit_list(aux->content[j], i, j);
+			j++;
+		}
+		i++;
+		
+	}
+	
+	return board;
 }

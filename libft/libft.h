@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmoreno- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 10:21:26 by pmoreno-          #+#    #+#             */
-/*   Updated: 2021/09/29 10:02:10 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/06 20:29:15 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 typedef struct s_list
 {
-	void			*content;
+	char		*content;
 	struct s_list	*next;
 }	t_list;
 int		ft_isalnum(int c);

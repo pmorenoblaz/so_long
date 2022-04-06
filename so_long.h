@@ -12,13 +12,6 @@
 # include "gnl/get_next_line.h"
 # include <mlx.h>
 
-// typedef struct s_list
-// {
-// 	int				pos;
-// 	int long+		num;
-// 	struct s_list	*next;
-// }	t_list;
-
 typedef struct  s_board {
 	int     x;
 	int 	y;
@@ -37,7 +30,7 @@ typedef struct s_data
 
 
 // main.c
-t_list	*ft_read_map(char *file);
+t_list	*ft_read_map(char *file, int cont[2]);
 
 // read_file.c
 
@@ -49,6 +42,6 @@ void	leaks();
 void	free_variables(t_list **list);
 void	free_variables_list(char **list);
 
-t_board	*ft_final_matrix(t_list **list);
+t_board	**ft_final_matrix(t_list **list, int cont[2]);
 
 #endif
