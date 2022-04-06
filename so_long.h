@@ -33,7 +33,7 @@ typedef struct s_data
 t_list	*ft_read_map(char *file, int cont[2]);
 
 // read_file.c
-
+t_list	*ft_read_map(char *file, int cont[2]);
 
 // leaks.c
 void	leaks();
@@ -42,6 +42,9 @@ void	leaks();
 void	free_variables(t_list **list);
 void	free_variables_list(char **list);
 
+// matrix.c
+void ft_initialize_pos(t_board *elem);
+t_board	ft_add_line_to_lit_list(char c, int fil, int col);
 t_board	**ft_final_matrix(t_list **list, int cont[2]);
 
 #endif
