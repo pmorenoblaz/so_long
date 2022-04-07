@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:05:56 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/07 19:00:38 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/07 19:32:07 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 {
 	// void	*mlx;
 	// void	*mlx_win;
+	// t_cont	*counters;
 	t_list	*list;
 	t_board **board;
 	int		cont[2];
@@ -35,6 +36,7 @@ int	main(int argc, char **argv)
 	list = ft_read_map(argv[1], cont);
 	
 	board = ft_final_matrix(&list, cont);
+	// counters = sum_cont(board, cont);
 	free_variables(&list);
 	free(*board);
 	// free_variables_board(&board, cont[0]);

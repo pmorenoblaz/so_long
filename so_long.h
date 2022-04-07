@@ -17,14 +17,15 @@ typedef struct  s_board {
 	int 	y;
 	char	type;
 	int		is_border;
-    int     jug;
+	int     jug;
     int     coll;
     int     end;
 } t_board;
 
 typedef struct s_cont {
-	t_board **board;
-	
+	int     jug;
+    int     coll;
+    int     end;
 } t_cont;
 
 typedef struct s_data

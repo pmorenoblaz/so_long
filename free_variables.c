@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 15:36:06 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/07 19:00:15 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/07 19:31:43 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ void	free_variables(t_list **list)
 	free(*list);
 }
 
-// void	free_variables_board(t_board ***list, int fil)
-// {
-// 	int		i;
+void	free_variables_board(t_board ***list, int fil)
+{
+	int		i;
 
-// 	i = 0;
-// 	while (i < fil - 1)
-// 	{
-// 		free(list[i]);
-// 		i++;
-// 	}
-// 	// free(**list);
-// }
+	i = 0;
+	while (i < fil)
+	{
+		free(list[i]);
+		i++;
+	}
+	// free(**list);
+}
 
