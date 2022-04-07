@@ -34,9 +34,6 @@ typedef struct s_data
 	void	*mlx_win;
 } t_data;
 
-// main.c
-t_list	*ft_read_map(char *file, int cont[2]);
-
 // read_file.c
 t_list	*ft_read_map(char *file, int cont[2]);
 
@@ -52,5 +49,10 @@ void	free_variables_board(t_board ***list, int fil);
 void ft_initialize_pos(t_board *elem);
 t_board	ft_add_line_to_lit_list(char c, int fil, int col);
 t_board	**ft_final_matrix(t_list **list, int cont[2]);
+
+// check_matrix.c
+t_cont *sum_cont(t_board **board, int cont[2]);
+void	check_map_border(t_board **board, int x, int y);
+void	check_map_values(t_board **board, int x, int y);
 
 #endif
