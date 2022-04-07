@@ -6,11 +6,23 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 12:01:35 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/06 20:51:45 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/07 18:46:41 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	print_list(t_list **list)
+{
+	t_list *aux;
+
+	aux = (*list);
+	while (aux)
+	{
+		printf("%s", aux->content);
+		aux = aux->next;
+	}
+}
 
 t_list	*ft_read_map(char *file, int cont[2])
 {
@@ -34,13 +46,12 @@ t_list	*ft_read_map(char *file, int cont[2])
 			exit (0);
 		}
 		ft_lstadd_back(&aux, ft_lstnew(line));
-		printf("%s", line);
-		if (line && ft_strlen(line) > 0)
-			free(line);
+		// free(line);
 		line = get_next_line(fd);
 		cont[0]++;
 	}
-	free(line);
+	// free(line);
 	close(fd);
+	print_list(&aux);
 	return (aux);
 }

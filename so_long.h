@@ -22,12 +22,16 @@ typedef struct  s_board {
     int     end;
 } t_board;
 
+typedef struct s_cont {
+	t_board **board;
+	
+} t_cont;
+
 typedef struct s_data
 {
 	void	*mlx;
 	void	*mlx_win;
 } t_data;
-
 
 // main.c
 t_list	*ft_read_map(char *file, int cont[2]);
@@ -40,7 +44,8 @@ void	leaks();
 
 // free_variables.c
 void	free_variables(t_list **list);
-void	free_variables_list(char **list);
+void	free_variables_list(char *list);
+void	free_variables_board(t_board ***list, int fil);
 
 // matrix.c
 void ft_initialize_pos(t_board *elem);
