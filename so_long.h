@@ -54,5 +54,7 @@ t_board	**ft_final_matrix(t_list **list, int cont[2]);
 t_cont *sum_cont(t_board **board, int cont[2]);
 void	check_map_border(t_board **board, int x, int y);
 void	check_map_values(t_board **board, int x, int y);
+void	check_map(t_board **board, int cont[2]);
+void   check_counters(t_cont *cont);
 
 #endif

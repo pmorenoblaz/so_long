@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:05:56 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/07 20:32:43 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/07 20:53:10 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	main(int argc, char **argv)
 	list = ft_read_map(argv[1], cont);
 	board = ft_final_matrix(&list, cont);
 	counters = sum_cont(board, cont);
+	check_map(board, cont);
+	check_counters(counters);
 	printf("\nContadores:\nJugadores: %d\nSalidas: %d\nColeccionables: %d\n\n", counters->jug, counters->end, counters->coll);
-	check_map_values(board, cont[0], cont[1]);
-	check_map_border(board, cont[0], cont[1]);
 	free_variables(&list);
 	free(*board);
 	
