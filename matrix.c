@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 20:51:28 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/07 19:31:02 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/07 19:36:50 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,20 +70,16 @@ t_board	**ft_final_matrix(t_list **list, int cont[2])
 	
 	i = 0;
 	aux = *list;
-	// printf("%s\n", (*list)->content);
 	board = malloc(sizeof(t_board *) * (cont[0]));
 	while (i < cont[0])
 	{
-		// printf("%s\n", aux->content);
 		j = 0;
 		board[i] = malloc(sizeof(t_board) * (cont[1] + 1));
 		while (j < cont[1])
 		{
 			board[i][j] = ft_add_line_to_lit_list(aux->content[j], i, j);
-			// printf("%c", board[i][j].type);
 			j++;
 		}
-		// printf("\n");
 		i++;
 		aux = aux->next;
 	}

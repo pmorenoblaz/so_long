@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 12:01:35 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/07 19:21:37 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/07 19:36:34 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,11 @@ t_list	*ft_read_map(char *file, int cont[2])
 			close(fd);
 			exit (0);
 		}
-		// printf("%s\n", line);
 		ft_lstadd_back(&aux, ft_lstnew(line));
 		// free(line);
 		line = get_next_line(fd);
 		cont[0]++;
 	}
-	// free(line);
 	close(fd);
-	// print_list(&aux);
 	return (aux);
 }
