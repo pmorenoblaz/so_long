@@ -1,59 +1,12 @@
-#include "so_long.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   board.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/08 19:14:40 by pmoreno-          #+#    #+#             */
+/*   Updated: 2022/04/08 19:14:43 by pmoreno-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// void    ft_sum_elements(t_board **board, char *line)
-// {
-//     int i;
-
-//     i = 0;
-//     while (line[i])
-//     {
-//         if (line[i] == 'P')
-//             board->jug++;
-//         if (line[i] == 'E')
-//             board->end++;
-//         if (line[i] == 'C')
-//             board->coll++;
-//         i++;
-//     }    
-// }
-
-// void    ft_check_board(t_board **board, int *x)
-// {
-//     int i;
-
-//     i = 0;
-//     if (board->jug != 1)
-//     {
-//         free_variables_list(board);
-//         exit(0);
-//     }
-//     if (board->coll == 0)
-//     {
-//         free_variables_list(board);
-//         exit(0);
-//     }
-//     if (board->end != 1)
-//     {
-//         free_variables_list(board);
-//         exit(0);
-//     }
-// }
-
-// void    ft_check_border(t_board **board, int x, int y)
-// {
-//     int	i;
-// 	int	j;
-
-// 	i = 0;
-// 	while (i < x)
-// 	{
-// 		j = 0;
-// 		while (j < y)
-// 		{
-// 			if (i)
-// 				;
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// }

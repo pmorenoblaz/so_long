@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 12:01:35 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/07 19:36:34 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/08 19:20:44 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_list	*ft_read_map(char *file, int cont[2])
 
 	fd = open(file, O_RDONLY);
 	line = get_next_line(fd);
+	if (line == 0)
+		exit(0);
 	cont[1] = ft_strlen(line) - 1;
 	aux = 0;
 	while (line)
@@ -46,7 +48,6 @@ t_list	*ft_read_map(char *file, int cont[2])
 			exit (0);
 		}
 		ft_lstadd_back(&aux, ft_lstnew(line));
-		// free(line);
 		line = get_next_line(fd);
 		cont[0]++;
 	}

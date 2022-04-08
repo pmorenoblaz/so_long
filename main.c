@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:05:56 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/07 20:53:10 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/08 19:27:52 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,9 @@ int	main(int argc, char **argv)
 	counters = sum_cont(board, cont);
 	check_map(board, cont);
 	check_counters(counters);
-	printf("\nContadores:\nJugadores: %d\nSalidas: %d\nColeccionables: %d\n\n", counters->jug, counters->end, counters->coll);
 	free_variables(&list);
 	free(*board);
-	
+	// system("leaks so_long");
 	// free_variables_board(&board, cont[0]);
 	// print_matrix(board, cont[0], cont[1]);
 	// mlx = mlx_init();
