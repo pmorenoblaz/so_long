@@ -34,7 +34,9 @@ typedef struct s_data
 	void	*mlx_win;
 } t_data;
 
+
 // read_file.c
+void	free_if_error(int fd, t_list **aux);
 t_list	*ft_read_map(char *file, int cont[2]);
 
 // leaks.c
@@ -42,7 +44,6 @@ void	leaks();
 
 // free_variables.c
 void	free_variables(t_list **list);
-void	free_variables_list(char *list);
 void	free_variables_board(t_board **list, int fil);
 
 // matrix.c
@@ -51,10 +52,24 @@ t_board	ft_add_line_to_lit_list(char c, int fil, int col);
 t_board	**ft_final_matrix(t_list **list, int cont[2]);
 
 // check_matrix.c
-t_cont *sum_cont(t_board **board, int cont[2]);
-void	check_map_border(t_board **board, int x, int y);
-void	check_map_values(t_board **board, int x, int y);
 void	check_map(t_board **board, int cont[2]);
-void   check_counters(t_cont *cont);
+
+// check_matrix_cont.c
+void	check_player(t_cont *cont);
+void	check_end(t_cont *cont);
+void	check_collectionables(t_cont *cont);
+void	check_counters(t_cont *cont);
+t_cont	*sum_cont(t_board **board, int cont[2]);
+
+// check_matrix_values.c
+void	check_map_values(t_board **board, int x, int y);
+void	check_map_border(t_board **board, int x, int y);
+
+// exit_game.c
+int		key_hook(int keycode, t_data *data);
+
+// utils.c
+void	print_list(t_list **list);
+void	print_matrix(t_board **matrix, int x, int y);
 
 #endif

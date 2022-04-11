@@ -2,6 +2,7 @@ SRCS	= gnl/get_next_line_utils.c gnl/get_next_line.c \
 			main.c leaks.c \
 			read_file.c free_variables.c matrix.c \
 			check_matrix.c check_matrix_cont.c check_matrix_values.c \
+			exit_game.c
 			
 
 LIBFT_PATH = libft/
