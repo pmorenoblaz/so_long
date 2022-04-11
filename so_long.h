@@ -43,7 +43,7 @@ void	leaks();
 // free_variables.c
 void	free_variables(t_list **list);
 void	free_variables_list(char *list);
-void	free_variables_board(t_board ***list, int fil);
+void	free_variables_board(t_board **list, int fil);
 
 // matrix.c
 void ft_initialize_pos(t_board *elem);
