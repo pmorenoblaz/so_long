@@ -6,22 +6,17 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 12:01:35 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/08 19:20:44 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/11 18:39:26 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	print_list(t_list **list)
+void	free_if_error(int fd, t_list **aux)
 {
-	t_list *aux;
-
-	aux = (*list);
-	while (aux)
-	{
-		printf("%s", aux->content);
-		aux = aux->next;
-	}
+	free_variables(aux);
+	close(fd);
+	exit (0);
 }
 
 t_list	*ft_read_map(char *file, int cont[2])
@@ -29,7 +24,7 @@ t_list	*ft_read_map(char *file, int cont[2])
 	int		fd;
 	char	*line;
 	int		len;
-	t_list *aux;
+	t_list	*aux;
 
 	fd = open(file, O_RDONLY);
 	line = get_next_line(fd);
@@ -41,12 +36,7 @@ t_list	*ft_read_map(char *file, int cont[2])
 	{
 		len = ft_strlen(line) - 1;
 		if (cont[1] != len)
-		{
-			free(line);
-			free_variables(&aux);
-			close(fd);
-			exit (0);
-		}
+			free_if_error(fd, &aux);
 		ft_lstadd_back(&aux, ft_lstnew(line));
 		line = get_next_line(fd);
 		cont[0]++;

@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 10:21:26 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/07 15:07:21 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/11 18:29:03 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 typedef struct s_list
 {
-	char		*content;
+	char			*content;
 	struct s_list	*next;
 }	t_list;
 int		ft_isalnum(int c);
