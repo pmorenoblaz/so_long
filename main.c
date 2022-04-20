@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:05:56 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/11 20:43:28 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/20 19:22:47 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 	t_cont	*counters;
 	t_list	*list;
 	t_board **board;
+	int		px;
 	int		cont[2];
 
 	atexit(leaks);
@@ -40,13 +41,17 @@ int	main(int argc, char **argv)
 	check_counters(counters);
 
 	data.mlx = mlx_init();
-	data.mlx_win = mlx_new_window(data.mlx, 1920, 1080, "so_long");
+	px = 80;
+	data.field =  mlx_xpm_file_to_image(data.mlx,"./img/field.xpm", &px, &px);
+	// data.dino =  mlx_xpm_file_to_image(data.mlx,"./img/polloesc2.xpm", &px, &px);
+	// data.food =  mlx_xpm_file_to_image(data.mlx,"./img/besc2.xpm", &px, &px);
+	data.mlx_win = mlx_new_window(data.mlx, px * cont[1], px * cont[0], "so_long");
 	
 	mlx_key_hook(data.mlx_win, &key_hook, &data);
 	
 	mlx_loop(data.mlx);
-	free(data.mlx);
-	free(data.mlx_win);
+	// free(data.mlx);
+	// free(data.mlx_win);
 	
 	
 	

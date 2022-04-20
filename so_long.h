@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/11 20:55:00 by pmoreno-          #+#    #+#             */
+/*   Updated: 2022/04/20 19:15:13 by pmoreno-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
-
 # include <string.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -12,26 +23,29 @@
 # include "gnl/get_next_line.h"
 # include <mlx.h>
 
-typedef struct  s_board {
-	int     x;
-	int 	y;
+typedef struct s_board {
+	int		x;
+	int		y;
 	char	type;
 	int		is_border;
-	int     jug;
-    int     coll;
-    int     end;
-} t_board;
+	int		jug;
+    int		coll;
+    int		end;
+}	t_board;
 
 typedef struct s_cont {
-	int     jug;
-    int     coll;
-    int     end;
-} t_cont;
+	int	jug;
+    int	coll;
+    int	end;
+}	t_cont;
 
 typedef struct s_data
 {
 	void	*mlx;
 	void	*mlx_win;
+	void	*field;
+	// void	*dino;
+	// void	*food;
 } t_data;
 
 
