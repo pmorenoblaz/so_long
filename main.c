@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:05:56 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/22 16:58:39 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/22 17:07:43 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,13 @@ int	main(int argc, char **argv)
 	t_data	data;
 	t_cont	*counters;
 	t_list	*list;
-	t_board **board;
+	// t_board **board2;
 	int		cont[2];
 
 	atexit(leaks);
 	list = 0;
-	board = 0;
+	// board2 = 0;
+	data.board = 0;
 	counters = 0;
 	cont[0] = 0;
 	cont[1] = 0;
@@ -95,14 +96,19 @@ int	main(int argc, char **argv)
 		exit (0);
 	}
 	list = ft_read_map(argv[1], cont);
-	board = ft_final_matrix(&list, cont);
-	counters = sum_cont(board, cont);
-	check_map(board, cont);
+	// board2 = ft_final_matrix(&list, cont);
+	// counters = sum_cont(board2, cont);
+	// check_map(board2, cont);
+	data.board = ft_final_matrix(&list, cont);
+	counters = sum_cont(data.board, cont);
+	check_map(data.board, cont);
 	check_counters(counters);
 
 	set_images(&data, cont);
-	print_img(board, cont[1], cont[0], data);
-	print_img2(board, cont[1], cont[0], data);
+	// print_img(board2, cont[1], cont[0], data);
+	// print_img2(board2, cont[1], cont[0], data);
+	print_img(data.board, cont[1], cont[0], data);
+	print_img2(data.board, cont[1], cont[0], data);
 	mlx_key_hook(data.mlx_win, &key_hook, &data);
 
 
@@ -111,6 +117,7 @@ int	main(int argc, char **argv)
 	free(data.mlx_win);
 	
 	free_variables(&list);
-	free_variables_board(board, cont[0]);
+	free_variables_board(data.board, cont[0]);
+	// free_variables_board(board2, cont[0]);
 	return (0);
 }

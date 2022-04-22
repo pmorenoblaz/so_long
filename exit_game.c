@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:41:49 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/22 16:46:20 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/22 17:07:24 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	key_hook(int keycode, t_data *data)
 {
-	if (keycode == 53)
+	if (keycode == 53 || keycode == 49)
 	{	
 		mlx_clear_window(data->mlx, data->mlx_win);
 		mlx_destroy_window(data->mlx, data->mlx_win);

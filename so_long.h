@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:55:00 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/22 16:59:10 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/22 17:05:47 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ typedef struct s_data
 	void	*border;
 	void	*end;
 	int		px;
+	t_board	**board;
 } t_data;
-
 
 // read_file.c
 void	free_if_error(int fd, t_list **aux);
