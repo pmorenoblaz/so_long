@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:55:00 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/22 07:53:33 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/22 16:59:10 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 # include <mlx.h>
 
 typedef struct s_board {
-	int		x;
-	int		y;
+	int		col;
+	int		row;
 	char	type;
 	int		is_border;
 	int		jug;
@@ -49,6 +49,7 @@ typedef struct s_data
 	void	*obs;
 	void	*border;
 	void	*end;
+	int		px;
 } t_data;
 
 

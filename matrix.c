@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 20:51:28 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/11 18:32:04 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/22 16:17:59 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_initialize_pos(t_board *elem)
 {
-	elem->x = -1;
-	elem->y = -1;
+	elem->col = -1;
+	elem->row = -1;
 	elem->is_border = 0;
 	elem->type = 'N';
 	elem->coll = 0;
@@ -23,13 +23,13 @@ void	ft_initialize_pos(t_board *elem)
 	elem->jug = 0;
 }
 
-t_board	ft_add_line_to_list(char c, int fil, int col)
+t_board	ft_add_line_to_list(char c, int row, int col)
 {
 	t_board	elem;
 
 	ft_initialize_pos(&elem);
-	elem.x = fil;
-	elem.y = col;
+	elem.col = col;
+	elem.row = row;
 	elem.type = c;
 	if (c == '1')
 		elem.is_border = 1;
