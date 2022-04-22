@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:55:00 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/21 18:08:17 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/22 07:53:33 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ typedef struct s_data
 	void	*field;
 	void	*dino;
 	void	*food;
+	void	*obs;
+	void	*border;
+	void	*end;
 } t_data;
 
 

@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:05:56 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/21 18:08:31 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/22 07:55:43 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,18 @@ void	print_img2(t_board **matrix, int x, int y, t_data  data)
 		while (j < y)
 		{
 			if (matrix[i][j].type == '1')
-				mlx_put_image_to_window(data.mlx, data.mlx_win, data.food,(matrix[i][j].x * 80), (matrix[i][j].y * 80));
+			{
+				if (i == 0 || j == 0 || i == x - 1 || j == y - 1)
+					mlx_put_image_to_window(data.mlx, data.mlx_win, data.border,(matrix[i][j].x * 80), (matrix[i][j].y * 80));
+				else
+					mlx_put_image_to_window(data.mlx, data.mlx_win, data.obs,(matrix[i][j].x * 80), (matrix[i][j].y * 80));
+			}
 			if (matrix[i][j].type == 'P')
 				mlx_put_image_to_window(data.mlx, data.mlx_win, data.dino,(matrix[i][j].x * 80), (matrix[i][j].y * 80));
+			if (matrix[i][j].type == 'C')
+				mlx_put_image_to_window(data.mlx, data.mlx_win, data.food,(matrix[i][j].x * 80), (matrix[i][j].y * 80));
+			if (matrix[i][j].type == 'E')
+				mlx_put_image_to_window(data.mlx, data.mlx_win, data.end,(matrix[i][j].x * 80), (matrix[i][j].y * 80));
 			j++;
 		}
 	}
@@ -81,8 +90,11 @@ int	main(int argc, char **argv)
 	data.mlx = mlx_init();
 	px = 80;
 	data.field =  mlx_xpm_file_to_image(data.mlx,"./img/field.xpm", &px, &px);
-	data.dino =  mlx_xpm_file_to_image(data.mlx,"./img/polloesc2.xpm", &px, &px);
-	data.food =  mlx_xpm_file_to_image(data.mlx,"./img/besc2.xpm", &px, &px);
+	data.dino =  mlx_xpm_file_to_image(data.mlx,"./img/1.xpm", &px, &px);
+	data.food =  mlx_xpm_file_to_image(data.mlx,"./img/polloesc2.xpm", &px, &px);
+	data.border = mlx_xpm_file_to_image(data.mlx,"./img/border.xpm", &px, &px);
+	data.obs = mlx_xpm_file_to_image(data.mlx,"./img/obs2.xpm", &px, &px);
+	data.end = mlx_xpm_file_to_image(data.mlx,"./img/cave.xpm", &px, &px);
 	data.mlx_win = mlx_new_window(data.mlx, px * cont[0], px * cont[1], "so_long");
 	print_img(board, cont[0], cont[1], data);
 	print_img2(board, cont[0], cont[1], data);
