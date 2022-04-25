@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:55:00 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/25 19:29:04 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/25 19:57:06 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct s_data
 	int		px;
 	t_board	**board;
 	t_cont	*cont;
-	t_player	*player;	
+	t_player	player;	
 } t_data;
 
 // read_file.c

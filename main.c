@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:05:56 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/25 19:31:53 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/25 20:18:32 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,24 +71,49 @@ void	set_images(t_data *data, int cont[2])
 	data->mlx_win = mlx_new_window(data->mlx, data->px * cont[1], data->px * cont[0], "so_long");
 }
 
+int	is_player(t_board **board, int i, int j)
+{
+	if (board[i][j].type == 'P')
+		return (1);
+	return (0);
+}
+
+t_player	where_is_the_player(t_board **board, int x, int y)
+{
+	int			i;
+	int			j;
+	t_player	player;
+
+	player.x = -1;
+	player.y = -1;
+	i = -1;
+	while (++i < x)
+	{
+		j = 0;
+		while (j < y)
+		{
+			if (is_player(board, i, j))
+			{
+				player.x = i;
+				player.y = j;
+				break ;
+			}	
+			j++;
+		}
+	}
+	return (player);
+}
 
 
 int	main(int argc, char **argv)
 {
-	// void	*mlx;
-	// void	*mlx_win;
 	t_data	data;
-	// t_cont	*counters;
 	t_list	*list;
-	// t_board **board2;
 	int		cont[2];
 
 	atexit(leaks);
 	list = 0;
-	// board2 = 0;
 	data.board = 0;
-	data.player = 0;
-	// counters = 0;
 	data.cont = 0;
 	cont[0] = 0;
 	cont[1] = 0;
@@ -108,7 +133,8 @@ int	main(int argc, char **argv)
 	check_map(data.board, cont);
 	// check_counters(counters);
 	check_counters(data.cont);
-	// where_is_the_player(data);
+	
+	data.player = where_is_the_player(data.board, data.cont->y, data.cont->x);
 
 
 	set_images(&data, cont);
