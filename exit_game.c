@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:41:49 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/22 17:07:24 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/25 19:20:44 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ int	key_hook(int keycode, t_data *data)
 		mlx_destroy_window(data->mlx, data->mlx_win);
 		exit(0);
 	}
-	// if (keycode == 2)
-	// {
+	if (keycode == 2)
+	{
 		
-	// }
+		// d_movement()
+	}
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmoreno- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 14:00:55 by pmoreno-          #+#    #+#             */
-/*   Updated: 2021/09/23 14:02:38 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/25 19:31:43 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static size_t	ft_end_position(char const *s1, char const *set, size_t pos)
 
 	i = ft_strlen(s1) - 1;
 	cont = 0;
-	while (i >= 0 && i > pos)
+	while (i > 0 && i > pos)
 	{
 		if (ft_position(set, s1[i]))
 		{

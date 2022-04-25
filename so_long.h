@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:55:00 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/22 17:05:47 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/25 19:29:04 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,14 @@ typedef struct s_cont {
 	int	jug;
     int	coll;
     int	end;
+	int	x;
+	int	y;
 }	t_cont;
+
+typedef struct s_player {
+	int	x;
+	int	y;
+}	t_player;
 
 typedef struct s_data
 {
@@ -51,10 +58,13 @@ typedef struct s_data
 	void	*end;
 	int		px;
 	t_board	**board;
+	t_cont	*cont;
+	t_player	*player;	
 } t_data;
 
 // read_file.c
 void	free_if_error(int fd, t_list **aux);
+// t_list	*ft_read_map(char *file, int cont[2]);
 t_list	*ft_read_map(char *file, int cont[2]);
 
 // leaks.c

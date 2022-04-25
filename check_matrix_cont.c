@@ -67,6 +67,8 @@ t_cont	*sum_cont(t_board **board, int cont[2])
 	aux->jug = 0;
 	aux->coll = 0;
 	aux->end = 0;
+	aux->x = cont[0];
+	aux->y = cont[1];
 	while (i < cont[0])
 	{
 		j = 0;

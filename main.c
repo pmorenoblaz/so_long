@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:05:56 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/22 17:07:43 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/25 19:31:53 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	main(int argc, char **argv)
 	// void	*mlx;
 	// void	*mlx_win;
 	t_data	data;
-	t_cont	*counters;
+	// t_cont	*counters;
 	t_list	*list;
 	// t_board **board2;
 	int		cont[2];
@@ -87,7 +87,9 @@ int	main(int argc, char **argv)
 	list = 0;
 	// board2 = 0;
 	data.board = 0;
-	counters = 0;
+	data.player = 0;
+	// counters = 0;
+	data.cont = 0;
 	cont[0] = 0;
 	cont[1] = 0;
 	if (argc != 2)
@@ -100,9 +102,14 @@ int	main(int argc, char **argv)
 	// counters = sum_cont(board2, cont);
 	// check_map(board2, cont);
 	data.board = ft_final_matrix(&list, cont);
-	counters = sum_cont(data.board, cont);
+	// counters = sum_cont(data.board, cont);
+	data.cont = sum_cont(data.board, cont);
+	// printf("%d, %d", counters->x, counters->y);
 	check_map(data.board, cont);
-	check_counters(counters);
+	// check_counters(counters);
+	check_counters(data.cont);
+	// where_is_the_player(data);
+
 
 	set_images(&data, cont);
 	// print_img(board2, cont[1], cont[0], data);
