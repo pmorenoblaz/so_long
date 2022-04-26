@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:05:56 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/25 20:18:32 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/26 19:12:18 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ t_player	where_is_the_player(t_board **board, int x, int y)
 		{
 			if (is_player(board, i, j))
 			{
-				player.x = i;
 				player.y = j;
+				player.x = i;
 				break ;
 			}	
 			j++;
