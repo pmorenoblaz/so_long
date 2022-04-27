@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:55:00 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/25 19:57:06 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/27 18:42:50 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_data
 	void	*border;
 	void	*end;
 	int		px;
+	int		mov_cont;
 	t_board	**board;
 	t_cont	*cont;
 	t_player	player;	
