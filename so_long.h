@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 20:55:00 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/27 18:42:50 by pmoreno-         ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   so_long.h										  :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: pmoreno- <pmoreno-@student.42.fr>		  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2022/04/11 20:55:00 by pmoreno-		  #+#	#+#			 */
+/*   Updated: 2022/04/27 20:35:28 by pmoreno-		 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
@@ -29,14 +29,14 @@ typedef struct s_board {
 	char	type;
 	int		is_border;
 	int		jug;
-    int		coll;
-    int		end;
+	int		coll;
+	int		end;
 }	t_board;
 
 typedef struct s_cont {
 	int	jug;
-    int	coll;
-    int	end;
+	int	coll;
+	int	end;
 	int	x;
 	int	y;
 }	t_cont;
@@ -48,20 +48,20 @@ typedef struct s_player {
 
 typedef struct s_data
 {
-	void	*mlx;
-	void	*mlx_win;
-	void	*field;
-	void	*dino;
-	void	*food;
-	void	*obs;
-	void	*border;
-	void	*end;
-	int		px;
-	int		mov_cont;
-	t_board	**board;
-	t_cont	*cont;
+	void		*mlx;
+	void		*mlx_win;
+	void		*field;
+	void		*dino;
+	void		*food;
+	void		*obs;
+	void		*border;
+	void		*end;
+	int			px;
+	int			mov_cont;
+	t_board		**board;
+	t_cont		*cont;
 	t_player	player;	
-} t_data;
+}	t_data;
 
 // read_file.c
 void	free_if_error(int fd, t_list **aux);
@@ -76,7 +76,7 @@ void	free_variables(t_list **list);
 void	free_variables_board(t_board **list, int fil);
 
 // matrix.c
-void ft_initialize_pos(t_board *elem);
+void	ft_initialize_pos(t_board *elem);
 t_board	ft_add_line_to_lit_list(char c, int fil, int col);
 t_board	**ft_final_matrix(t_list **list, int cont[2]);
 
@@ -101,4 +101,26 @@ int		key_hook(int keycode, t_data *data);
 void	print_list(t_list **list);
 void	print_matrix(t_board **matrix, int x, int y);
 
+// make_movement.c
+void	end_game(t_data *data, int x, int y);
+void	move_player(t_data *data, int x, int y);
+void	check_if_colleccionable(t_data *data);
+
+// exit_game.c
+void	exit_game(t_data *data);
+
+// first_window_images.c
+void	put_field(t_board **matrix, int row, int col, t_data data);
+void	replace_field(t_board **matrix, int row, int col, t_data data);
+
+// replace_imgs.c
+void	replace_player_img(t_board **matrix, int row, int col, t_data data);
+void	replace_exit_img(t_board **matrix, int row, int col, t_data data);
+void	replace_col_img(t_board **matrix, int row, int col, t_data data);
+void	replace_border_img(t_board **matrix, int row, int col, t_data data);
+
+void	go_down(t_data *data);
+void	go_up(t_data *data);
+void	go_right(t_data *data);
+void	go_left(t_data *data);
 #endif

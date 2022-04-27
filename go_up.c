@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_game.c                                        :+:      :+:    :+:   */
+/*   go_up.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 20:41:49 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/27 20:19:43 by pmoreno-         ###   ########.fr       */
+/*   Created: 2022/04/27 19:54:01 by pmoreno-          #+#    #+#             */
+/*   Updated: 2022/04/27 20:06:03 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	exit_game(t_data *data)
+void	go_up(t_data *data)
 {
-	mlx_clear_window(data->mlx, data->mlx_win);
-	mlx_destroy_window(data->mlx, data->mlx_win);
-	exit(0);
+	if ((data->player.x - 1) < (data->cont->y - 1))
+	{
+		if (data->board[data->player.x - 1][data->player.y].type != '1')
+		{
+			if (data->board[data->player.x - 1][data->player.y].type == 'E')
+			{
+				if (data->cont->coll == 0)
+					end_game(data, -1, 0);
+			}
+			else
+			{
+				move_player(data, -1, 0);
+				check_if_colleccionable(data);
+			}
+		}
+	}
 }

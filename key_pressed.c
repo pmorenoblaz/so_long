@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_game.c                                        :+:      :+:    :+:   */
+/*   key_pressed.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 20:41:49 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/27 20:19:43 by pmoreno-         ###   ########.fr       */
+/*   Created: 2022/04/27 20:18:32 by pmoreno-          #+#    #+#             */
+/*   Updated: 2022/04/27 20:22:02 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	exit_game(t_data *data)
+int	key_hook(int keycode, t_data *data)
 {
-	mlx_clear_window(data->mlx, data->mlx_win);
-	mlx_destroy_window(data->mlx, data->mlx_win);
-	exit(0);
+	if (keycode == 53 || keycode == 49)
+		exit_game(data);
+	if (keycode == 1)
+		go_down(data);
+	if (keycode == 13)
+		go_up(data);
+	if (keycode == 2)
+		go_right(data);
+	if (keycode == 0)
+		go_left(data);
+	printf("%d\n", data->mov_cont);
+	return (0);
 }
