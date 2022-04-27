@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:05:56 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/26 19:12:18 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/27 18:50:40 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,40 +117,26 @@ int	main(int argc, char **argv)
 	data.cont = 0;
 	cont[0] = 0;
 	cont[1] = 0;
+	data.mov_cont = 0;
 	if (argc != 2)
 	{
 		printf("Error en el número de argumentos\n");
 		exit (0);
 	}
 	list = ft_read_map(argv[1], cont);
-	// board2 = ft_final_matrix(&list, cont);
-	// counters = sum_cont(board2, cont);
-	// check_map(board2, cont);
 	data.board = ft_final_matrix(&list, cont);
-	// counters = sum_cont(data.board, cont);
 	data.cont = sum_cont(data.board, cont);
-	// printf("%d, %d", counters->x, counters->y);
 	check_map(data.board, cont);
-	// check_counters(counters);
 	check_counters(data.cont);
-	
 	data.player = where_is_the_player(data.board, data.cont->y, data.cont->x);
-
-
 	set_images(&data, cont);
-	// print_img(board2, cont[1], cont[0], data);
-	// print_img2(board2, cont[1], cont[0], data);
 	print_img(data.board, cont[1], cont[0], data);
 	print_img2(data.board, cont[1], cont[0], data);
 	mlx_key_hook(data.mlx_win, &key_hook, &data);
-
-
 	mlx_loop(data.mlx);
 	free(data.mlx);
 	free(data.mlx_win);
-	
 	free_variables(&list);
 	free_variables_board(data.board, cont[0]);
-	// free_variables_board(board2, cont[0]);
 	return (0);
 }

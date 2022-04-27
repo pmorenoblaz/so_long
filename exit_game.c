@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:41:49 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/26 20:13:33 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/27 18:57:06 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,32 @@ int	key_hook(int keycode, t_data *data)
 		{
 			if (data->board[data->player.x + 1][data->player.y].type != '1')
 			{
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
-				data->player.x += 1;
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->dino,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
-				if (data->board[data->player.x][data->player.y - 1].type == 'C')
-					data->cont[0].coll -= 1;
-				printf("%d\n", data->cont->coll);			
+				if (data->board[data->player.x + 1][data->player.y].type == 'E')
+				{
+					if (data->cont->coll == 0)
+					{
+						mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+						data->player.x += 1;
+						mlx_put_image_to_window(data->mlx, data->mlx_win, data->dino,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+						data->mov_cont += 1;
+						exit (0);
+					}
+				}
+				else
+				{
+					mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+					data->player.x += 1;
+					mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+					mlx_put_image_to_window(data->mlx, data->mlx_win, data->dino,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+					if (data->board[data->player.x][data->player.y].type == 'C')
+					{
+						data->cont->coll -= 1;
+						data->board[data->player.x][data->player.y].type = '0';
+					}
+					data->mov_cont += 1;
+				}	
 			}
 		}
-		else
-			write(1, "te has salido\n", 14);
-		// d_movement()
 	}
 	if (keycode == 13)
 	{
@@ -45,17 +59,31 @@ int	key_hook(int keycode, t_data *data)
 		{
 			if (data->board[data->player.x - 1][data->player.y].type != '1')
 			{
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
-				data->player.x -= 1;
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->dino,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
-				if (data->board[data->player.x][data->player.y - 1].type == 'C')
-					data->cont[0].coll -= 1;
-				printf("%d\n", data->cont->coll);
+				if (data->board[data->player.x - 1][data->player.y].type == 'E')
+				{
+					if (data->cont->coll == 0)
+					{
+						mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+						data->player.x += 1;
+						mlx_put_image_to_window(data->mlx, data->mlx_win, data->dino,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+						data->mov_cont += 1;
+						exit (0);
+					}
+				}
+				else{
+					mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+					data->player.x -= 1;
+					mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+					mlx_put_image_to_window(data->mlx, data->mlx_win, data->dino,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+					if (data->board[data->player.x][data->player.y].type == 'C')
+					{
+						data->cont->coll -= 1;
+						data->board[data->player.x][data->player.y].type = '0';
+					}
+					data->mov_cont += 1;
+				}
 			}
 		}
-		else
-			write(1, "te has salido\n", 14);
 		// d_movement()
 	}
 	if (keycode == 2)
@@ -64,18 +92,31 @@ int	key_hook(int keycode, t_data *data)
 		{
 			if (data->board[data->player.x][data->player.y + 1].type != '1')
 			{
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
-				data->player.y += 1;
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->dino,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
-				if (data->board[data->player.x][data->player.y - 1].type == 'C')
-					data->cont[0].coll -= 1;
-				printf("%d\n", data->cont->coll);			
+				if (data->board[data->player.x][data->player.y + 1].type == 'E')
+				{
+					if (data->cont->coll == 0)
+					{
+						mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+						data->player.x += 1;
+						mlx_put_image_to_window(data->mlx, data->mlx_win, data->dino,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+						data->mov_cont += 1;
+						exit (0);
+					}
+				}
+				else{
+					mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+					data->player.y += 1;
+					mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+					mlx_put_image_to_window(data->mlx, data->mlx_win, data->dino,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+					if (data->board[data->player.x][data->player.y].type == 'C')
+					{
+						data->cont->coll -= 1;
+						data->board[data->player.x][data->player.y].type = '0';
+					}
+					data->mov_cont += 1;
+				}		
 			}
 		}
-		else
-			write(1, "te has salido\n", 14);
-		// d_movement()
 	}
 	if (keycode == 0)
 	{
@@ -83,18 +124,32 @@ int	key_hook(int keycode, t_data *data)
 		{
 			if (data->board[data->player.x][data->player.y - 1].type != '1')
 			{
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
-				data->player.y -= 1;
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->dino,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
-				if (data->board[data->player.x][data->player.y - 1].type == 'C')
-					data->cont[0].coll -= 1;
-				printf("%d\n", data->cont->coll);
+				if (data->board[data->player.x][data->player.y - 1].type == 'E')
+				{
+					if (data->cont->coll == 0)
+					{
+						mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+						data->player.x += 1;
+						mlx_put_image_to_window(data->mlx, data->mlx_win, data->dino,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+						data->mov_cont += 1;
+						exit (0);
+					}
+				}
+				else{
+					mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+					data->player.y -= 1;
+					mlx_put_image_to_window(data->mlx, data->mlx_win, data->field,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+					mlx_put_image_to_window(data->mlx, data->mlx_win, data->dino,(data->board[data->player.x][data->player.y].col * data->px), (data->board[data->player.x][data->player.y].row * data->px));
+					if (data->board[data->player.x][data->player.y].type == 'C')
+					{
+						data->cont->coll -= 1;
+						data->board[data->player.x][data->player.y].type = '0';
+					}
+					data->mov_cont += 1;
+				}
 			}
 		}
-		else
-			write(1, "te has salido\n", 14);
-		// d_movement()
 	}
+	printf("%d\n", data->mov_cont);
 	return (0);
 }
