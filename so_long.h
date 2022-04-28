@@ -109,6 +109,10 @@ void	check_if_colleccionable(t_data *data);
 // exit_game.c
 void	exit_game(t_data *data);
 
+// player_functions.c
+int		is_player(t_board **board, int i, int j);
+t_player	where_is_the_player(t_board **board, int x, int y);
+
 // first_window_images.c
 void	put_field(t_board **matrix, int row, int col, t_data data);
 void	replace_field(t_board **matrix, int row, int col, t_data data);
