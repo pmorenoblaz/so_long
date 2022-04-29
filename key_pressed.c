@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 20:18:32 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/27 20:22:02 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/29 18:58:29 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	key_hook(int keycode, t_data *data)
 		go_right(data);
 	if (keycode == 0)
 		go_left(data);
-	printf("%d\n", data->mov_cont);
+	print_steps(*data);
+	printf("\rSteps: %d\n", data->mov_cont);
 	return (0);
 }

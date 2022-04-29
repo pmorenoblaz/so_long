@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 20:04:15 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/28 20:18:15 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/29 19:22:14 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int	main(int argc, char **argv)
 	t_list	*list;
 	int		cont[2];
 
-	atexit(leaks);
 	list = 0;
 	initialize_main_vars(&data, cont);
 	if (argc != 2)
