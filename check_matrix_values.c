@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 18:21:39 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/11 18:23:54 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/29 19:58:24 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_map_values(t_board **board, int x, int y)
 				board[i][j].type != 'E' && board[i][j].type != '0' &&
 				board[i][j].type != '1')
 			{
-				printf("Revisa los valores\n");
+				printf("Error\nCheck the matrix values\n");
 				exit(0);
 			}
 			j++;
@@ -51,7 +51,7 @@ void	check_map_border(t_board **board, int x, int y)
 			{
 				if (board[i][j].type != '1')
 				{
-					printf("El borde no está bien\n");
+					printf("Error\nCheck the border\n");
 					exit(0);
 				}
 			}
