@@ -101,6 +101,7 @@ void		go_right(t_data *data);
 void		go_up(t_data *data);
 
 // key_pressed.c
+void		steps(t_data *data);
 int			key_hook(int keycode, t_data *data);
 
 // make_movement.c

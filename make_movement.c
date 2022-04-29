@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 19:07:57 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/27 20:10:16 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/04/29 19:48:49 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	end_game(t_data *data, int x, int y)
 		(data->board[data->player.x][data->player.y].col * data->px),
 		(data->board[data->player.x][data->player.y].row * data->px));
 	data->mov_cont += 1;
+	steps(data);
 	exit (0);
 }
 
@@ -40,6 +41,7 @@ void	move_player(t_data *data, int x, int y)
 		(data->board[data->player.x][data->player.y].col * data->px),
 		(data->board[data->player.x][data->player.y].row * data->px));
 	data->mov_cont += 1;
+	steps(data);
 }
 
 void	check_if_colleccionable(t_data *data)
