@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 12:01:35 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/04/27 18:50:54 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/05/11 19:07:02 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,19 @@ void	free_if_error(int fd, t_list **aux)
 	exit (0);
 }
 
+void	check_file(char *file)
+{
+	int	i;
+
+	i = ft_strlen(file) - 1;
+	if (file[i] != 'r' || file[i - 1] != 'e'
+		|| file[i - 2] != 'b' || file[i - 3] != '.')
+	{
+		printf("Error\nIncorrect file extension\n");
+		exit (0);
+	}
+}
+
 t_list	*ft_read_map(char *file, int cont[2])
 {
 	int		fd;
@@ -26,6 +39,7 @@ t_list	*ft_read_map(char *file, int cont[2])
 	int		len;
 	t_list	*aux;
 
+	check_file(file);
 	fd = open(file, O_RDONLY);
 	line = get_next_line(fd);
 	if (line == 0)

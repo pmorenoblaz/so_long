@@ -16,12 +16,12 @@ void	check_player(t_cont *cont)
 {
 	if (cont->jug > 1)
 	{
-		printf("Muchos jugadores\n");
+		printf("Error\nToo many players\n");
 		exit(0);
 	}
 	if (cont->jug > 1)
 	{
-		printf("Muy pocos jugadores\n");
+		printf("Error\nThere are not enought players\n");
 		exit(0);
 	}
 }
@@ -30,12 +30,12 @@ void	check_end(t_cont *cont)
 {
 	if (cont->end < 1)
 	{
-		printf("Necesitas una salida\n");
+		printf("Error\nWhere is the exit?\n");
 		exit(0);
 	}
 	if (cont->end > 1)
 	{
-		printf("Solo puedes tener una salida\n");
+		printf("Error\nThere are a lot of exits!\n");
 		exit(0);
 	}
 }
@@ -44,7 +44,7 @@ void	check_collectionables(t_cont *cont)
 {
 	if (cont->coll < 1)
 	{
-		printf("No hay coleccionables suficientes\n");
+		printf("Error\nYou have too add some collectionables\n");
 		exit(0);
 	}
 }
@@ -62,17 +62,17 @@ t_cont	*sum_cont(t_board **board, int cont[2])
 	int		j;
 	t_cont	*aux;
 
-	i = 0;
+	i = -1;
 	aux = malloc(sizeof(t_cont));
 	aux->jug = 0;
 	aux->coll = 0;
 	aux->end = 0;
 	aux->x = cont[1];
 	aux->y = cont[0];
-	while (i < cont[0])
+	while (++i < cont[0])
 	{
-		j = 0;
-		while (j < cont[1])
+		j = -1;
+		while (++j < cont[1])
 		{
 			if (board[i][j].type == 'C')
 				aux->coll++;
@@ -80,9 +80,7 @@ t_cont	*sum_cont(t_board **board, int cont[2])
 				aux->end++;
 			else if (board[i][j].type == 'P')
 				aux->jug++;
-			j++;
 		}
-		i++;
 	}
 	return (aux);
 }
