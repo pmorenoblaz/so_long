@@ -6,7 +6,7 @@
 /*   By: pmoreno- <pmoreno-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:05:56 by pmoreno-          #+#    #+#             */
-/*   Updated: 2022/05/11 19:08:12 by pmoreno-         ###   ########.fr       */
+/*   Updated: 2022/05/11 19:21:12 by pmoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int	main(int argc, char **argv)
 	put_field(data.board, cont[1], cont[0], data);
 	replace_field(data.board, cont[1], cont[0], data);
 	mlx_key_hook(data.mlx_win, &key_hook, &data);
+	mlx_hook(data.mlx_win, 17, (1L << 17), &exit_game, &data.mlx);
 	mlx_loop(data.mlx);
 	free_main_vars(&data, &list, cont[0]);
 	return (0);

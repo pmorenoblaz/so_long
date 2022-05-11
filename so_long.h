@@ -78,7 +78,7 @@ void		check_map_border(t_board **board, int x, int y);
 void		check_map(t_board **board, int cont[2]);
 
 // exit_game.c
-void		exit_game(t_data *data);
+int			exit_game(t_data *data);
 
 // first_window_images.c
 void		put_field(t_board **matrix, int row, int col, t_data data);
